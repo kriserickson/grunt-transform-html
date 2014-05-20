@@ -43,6 +43,16 @@ module.exports = function (grunt) {
                 src: 'test/source/test_html_page.html',
                 dest: 'test/results/test_html_page_development.html',
                 target:'DEVELOPMENT'
+            },
+            test_two_zones_development: {
+                src: 'test/source/test_two_zones.html',
+                dest: 'test/results/test_two_zones_development.html',
+                target:'DEVELOPMENT'
+            },
+            test_two_zones_production: {
+                src: 'test/source/test_two_zones.html',
+                dest: 'test/results/test_two_zones_production.html',
+                target:'PRODUCTION'
             }
         },
 
@@ -61,6 +71,8 @@ module.exports = function (grunt) {
         'transform_html:test_simple_development',
         'transform_html:test_html_page_production',
         'transform_html:test_html_page_development',
+        'transform_html:test_two_zones_production',
+        'transform_html:test_two_zones_development',
         'nodeunit'
     ]);
 

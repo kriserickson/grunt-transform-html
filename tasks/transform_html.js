@@ -39,7 +39,7 @@ module.exports = function (grunt) {
     // HELPERS
     // ==========================================================================
     function doTransform(text, target) {
-       var replaceOtherRegex = new RegExp('<!-- (@@((?!' + target + ').)+@@)[\\s\\S]+\\1 -->', 'g'),
+       var replaceOtherRegex = new RegExp('<!-- (@@((?!' + target + ').)+?@@)[\\s\\S]+?\\1 -->', 'g'),
            removeCommentsRegex = new RegExp('<!-- @@' + target + '@@.*$', 'mg');
 
         return text.replace(replaceOtherRegex, '').replace(removeCommentsRegex, '');
@@ -58,12 +58,12 @@ module.exports = function (grunt) {
             return;
         }
 
-        var fs = require('fs'),
-            path = require('path'),
-            src = path.resolve(data.src),
-            dest = path.resolve(data.dest),
-            target = data.target || 'PRODUCTION',
-            done = grunt.task.current.async();
+        var fs = require('fs');
+        var path = require('path');
+        var src = path.resolve(data.src);
+        var dest = path.resolve(data.dest);
+        var target = data.target || 'PRODUCTION';
+        var done = grunt.task.current.async();
 
         fs.readFile(src, 'utf-8', function (err, text) {
             if (err) {

@@ -6,7 +6,6 @@ var path = require('path');
 exports.transform_html = {
 
     test_simple_development: function (test) {
-        test.expect(1);
 
         var actual = grunt.file.read(path.resolve('test/results/test_simple_development.html'));
         var expected = grunt.file.read(path.resolve('test/expected/test_simple_development.html'));
@@ -16,7 +15,6 @@ exports.transform_html = {
     },
 
     test_simple_production: function (test) {
-        test.expect(1);
 
         var actual = grunt.file.read(path.resolve('test/results/test_simple_production.html'));
         var expected = grunt.file.read(path.resolve('test/expected/test_simple_production.html'));
@@ -26,7 +24,6 @@ exports.transform_html = {
     },
 
     test_html_page_development: function (test) {
-        test.expect(1);
 
         var actual = grunt.file.read(path.resolve('test/results/test_html_page_development.html'));
         var expected = grunt.file.read(path.resolve('test/expected/test_html_page_development.html'));
@@ -36,12 +33,31 @@ exports.transform_html = {
     },
 
     test_html_page_production: function (test) {
-        test.expect(1);
 
         var actual = grunt.file.read(path.resolve('test/results/test_html_page_production.html'));
         var expected = grunt.file.read(path.resolve('test/expected/test_html_page_production.html'));
         test.equal(actual, expected, 'Test HTML Page Production should output file exactly the same with no options');
 
         test.done();
+    },
+
+    test_two_zones_development: function(test) {
+
+        var actual = grunt.file.read(path.resolve('test/results/test_two_zones_development.html'));
+        var expected = grunt.file.read(path.resolve('test/expected/test_two_zones_development.html'));
+        test.equal(actual, expected, 'Test HTML Page Pevelopment should output file exactly the same with no options');
+
+        test.done();
+
+    },
+
+    test_two_zones_production: function(test) {
+
+        var actual = grunt.file.read(path.resolve('test/results/test_two_zones_production.html'));
+        var expected = grunt.file.read(path.resolve('test/expected/test_two_zones_production.html'));
+        test.equal(actual, expected, 'Test HTML Page Production should output file exactly the same with no options');
+
+        test.done();
+
     }
 };
